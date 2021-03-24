@@ -3,8 +3,7 @@ import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../routes/Home.js";
 import Login from "../routes/Login.js";
 
-const AppRouter = () => {
-  const [isLogin, setIsLogin] = useState(false);
+const AppRouter = ({ isLogin }) => {
   return (
     <Router>
       <Switch>
