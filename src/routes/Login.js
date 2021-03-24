@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import CreateAccount from "./CreateAccount.js";
 
 const Login = () => {
+  const [signBtn, setSignBtn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onChange = (event) => {
@@ -9,7 +11,6 @@ const Login = () => {
     } = event;
     if (name === "email") {
       setEmail(value);
-      console.log(email);
     }
     if (name === "password") {
       setPassword(value);
@@ -18,6 +19,14 @@ const Login = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    if (
+      JSON.parse(localStorage.getItem("user_account")).email === email &&
+      JSON.parse(localStorage.getItem("user_account")).password === password
+    ) {
+      console.log("good");
+    } else {
+      alert("정보가 없습니다.");
+    }
   };
   return (
     <div>
@@ -38,8 +47,23 @@ const Login = () => {
           placeholder="Password"
           required
         />
-        <input type="submit" value="sign in" />
+        <input type="submit" value="sign in" onClick={onSubmit} />
       </form>
+      <div>
+        Do you haven't account? Sign Up! very simple
+        <button onClick={() => setSignBtn(!signBtn)}>
+          {signBtn ? "X" : "Sign Up"}
+        </button>
+      </div>
+      <div>
+        {signBtn ? (
+          <>
+            <CreateAccount />
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 };

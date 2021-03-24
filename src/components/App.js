@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/style.css";
 import "../components/Router.js";
 import AppRouter from "./Router.js";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
+  const testObj = {
+    email: "ysy@naver.com",
+    password: "1234",
+  };
+  localStorage.setItem("user_account", JSON.stringify(testObj));
+
   return (
     <>
-      <AppRouter isLogin={isLogin} />
+      <AppRouter />
       <footer>&copy; {new Date().getFullYear()} twitter</footer>
     </>
   );
