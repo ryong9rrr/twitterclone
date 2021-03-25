@@ -9,6 +9,7 @@
 - #1.2 react-router-dom 으로 router set-up
 - #2.2 Login-Form with useState
 - #2.3 로그인창에서 Home창으로 가기 작업중..
+- #2.4 로그인, 가입하기
 
 ---
 
@@ -29,3 +30,7 @@ Hooks를 활용한 로그인폼 작성중
 localStorage를 가상 데이터베이스라고 생각하고 일단 계정을 만들어 놓고, email & password 값이 일치하면 Home창으로 가는 작업중.
 
 어떻게하면 Router.js의 useState를 true로 바꿀 수 있을까?
+
+## #2.4 로그인, 가입하기
+
+과감하게 AppRouter.js 를 삭제, Login 과 CreateAccount 에서 반복사용되는 구조는 나중에 useForm 으로 리팩토링해보자.

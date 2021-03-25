@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import CreateAccount from "./CreateAccount.js";
+import Home from "./Home";
 
 const Login = () => {
-  const [signBtn, setSignBtn] = useState(false);
+  const [login, setLogin] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [toggleBtn, setToggleBtn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onChange = (event) => {
@@ -17,18 +20,24 @@ const Login = () => {
     }
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
+    const USER = JSON.parse(localStorage.getItem("USERS"));
     event.preventDefault();
+    setDisabled(true);
+    await new Promise((r) => setTimeout(r, 1000));
     if (
-      JSON.parse(localStorage.getItem("user_account")).email === email &&
-      JSON.parse(localStorage.getItem("user_account")).password === password
+      USER.find((user) => user.email === email && user.password === password)
     ) {
-      console.log("good");
+      setLogin(true);
     } else {
       alert("정보가 없습니다.");
     }
+    setDisabled(false);
   };
-  return (
+
+  return login ? (
+    <Home />
+  ) : (
     <div>
       <form onSubmit={onSubmit}>
         <input
@@ -47,16 +56,18 @@ const Login = () => {
           placeholder="Password"
           required
         />
-        <input type="submit" value="sign in" onClick={onSubmit} />
+        <button disabled={disabled} type="submit">
+          Sign in
+        </button>
       </form>
       <div>
         Do you haven't account? Sign Up! very simple
-        <button onClick={() => setSignBtn(!signBtn)}>
-          {signBtn ? "X" : "Sign Up"}
+        <button onClick={() => setToggleBtn(!toggleBtn)}>
+          {toggleBtn ? "X" : "Sign Up"}
         </button>
       </div>
       <div>
-        {signBtn ? (
+        {toggleBtn ? (
           <>
             <CreateAccount />
           </>

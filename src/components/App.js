@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../css/style.css";
-import "../components/Router.js";
-import AppRouter from "./Router.js";
+import Login from "../routes/Login";
+import { usersInfo } from "../userData";
 
 function App() {
-  const testObj = {
-    email: "ysy@naver.com",
-    password: "1234",
-  };
-  localStorage.setItem("user_account", JSON.stringify(testObj));
+  localStorage.setItem("USERS", JSON.stringify(usersInfo));
 
   return (
     <>
-      <AppRouter />
+      <Login />
       <footer>&copy; {new Date().getFullYear()} twitter</footer>
     </>
   );
