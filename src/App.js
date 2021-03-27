@@ -1,7 +1,7 @@
 import React from "react";
-import "../css/style.css";
-import Login from "../routes/Login";
-import { usersInfo } from "../userData";
+import "./css/style.css";
+import Login from "./components/Login";
+import { usersInfo } from "./userData";
 
 function App() {
   localStorage.setItem("USERS", JSON.stringify(usersInfo));
@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Login />
-      <footer>&copy; {new Date().getFullYear()} twitter</footer>
+      <footer>&copy; {new Date().getFullYear()} notion</footer>
     </>
   );
 }

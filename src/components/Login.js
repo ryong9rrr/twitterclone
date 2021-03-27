@@ -28,7 +28,9 @@ const Login = () => {
     if (
       USER.find((user) => user.email === email && user.password === password)
     ) {
+      const currentUser = USER.find((user) => user);
       setLogin(true);
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
     } else {
       alert("정보가 없습니다.");
     }

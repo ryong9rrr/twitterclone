@@ -10,6 +10,7 @@
 - #2.2 Login-Form with useState
 - #2.3 로그인창에서 Home창으로 가기 작업중..
 - #2.4 로그인, 가입하기
+- #2.5 Home창 Nav
 
 ---
 
@@ -34,3 +35,7 @@ localStorage를 가상 데이터베이스라고 생각하고 일단 계정을 �
 ## #2.4 로그인, 가입하기
 
 과감하게 AppRouter.js 를 삭제, Login 과 CreateAccount 에서 반복사용되는 구조는 나중에 useForm 으로 리팩토링해보자.
+
+## #2.5 Home창 Nav
+
+Notion 비슷하게 만들어보자

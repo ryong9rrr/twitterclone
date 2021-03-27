@@ -4,6 +4,8 @@ const CreateAccount = () => {
   const [disabled, setDisabled] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const onChange = (event) => {
     const {
       target: { name, value },
@@ -14,6 +16,12 @@ const CreateAccount = () => {
     if (name === "password") {
       setPassword(value);
     }
+    if (name === "lastName") {
+      setLastName(value);
+    }
+    if (name === "firstName") {
+      setFirstName(value);
+    }
   };
   const createAccount = async (event) => {
     const USER = JSON.parse(localStorage.getItem("USERS"));
@@ -23,9 +31,13 @@ const CreateAccount = () => {
     if (USER.find((user) => user.email === email)) {
       alert("다른 이메일을 입력해주세요.");
     } else {
+      const id = USER.length;
       const newAccount = {
+        id,
         email,
         password,
+        lastName,
+        firstName,
       };
       USER.push(newAccount);
       localStorage.setItem("USERS", JSON.stringify(USER));
@@ -53,6 +65,22 @@ const CreateAccount = () => {
         value={password}
         type="password"
         placeholder="Password"
+        required
+      />
+      <input
+        name="lastName"
+        onChange={onChange}
+        value={lastName}
+        type="text"
+        placeholder="Last Name"
+        required
+      />
+      <input
+        name="firstName"
+        onChange={onChange}
+        value={firstName}
+        type="text"
+        placeholder="First Name"
         required
       />
       <button disabled={disabled} type="submit" onClick={createAccount}>
