@@ -1,7 +1,5 @@
 # 리액트 연습
 
-트위터클론코딩, firebase는 X
-
 `git config --global core.autocrlf true`
 
 ## 목차
@@ -34,7 +32,7 @@ localStorage를 가상 데이터베이스라고 생각하고 일단 계정을 �
 
 ## #2.4 로그인, 가입하기
 
-과감하게 AppRouter.js 를 삭제, Login 과 CreateAccount 에서 반복사용되는 구조는 나중에 useForm 으로 리팩토링해보자.
+과감하게 AppRouter.js 를 삭제, Login 과 CreateAccount 에서 반복사용되는 구조는 useForm 으로 리팩토링 해볼 것.
 
 ## #2.5 Home창 Nav
 
