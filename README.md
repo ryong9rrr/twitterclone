@@ -2,6 +2,8 @@
 
 `git config --global core.autocrlf true`
 
+<img src="./img/main.gif" />
+
 ## 목차
 
 - #1.2 react-router-dom 으로 router set-up

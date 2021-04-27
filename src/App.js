@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Login />
-      <footer>&copy; {new Date().getFullYear()} notion</footer>
+      <footer>&copy; {new Date().getFullYear()} ryong9rrr</footer>
     </>
   );
 }
